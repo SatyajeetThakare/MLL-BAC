@@ -1,20 +1,22 @@
+/* global malarkey:false, moment:false */
+
 import { config } from './index.config';
 import { routerConfig } from './index.route';
 import { runBlock } from './index.run';
-import { LoginController } from './login/login.controller';
-import { DashboardController } from './dashboard/dashboard.controller';
-import { apiService } from '../app/components/api/api.service';
-import { masterService } from '../app/components/master/master.service';
-import { authService } from '../app/login/auth.service';
-import { AppController } from '../app/components/app/app.controller';
+import { MainController } from './main/main.controller';
+import { GithubContributorService } from '../app/components/githubContributor/githubContributor.service';
+import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service';
+import { NavbarDirective } from '../app/components/navbar/navbar.directive';
+import { MalarkeyDirective } from '../app/components/malarkey/malarkey.directive';
 
-angular.module('mllRfpClient', ['ui.router', 'ngFileUpload','toaster'])
+angular.module('mllBac', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'ui.bootstrap', 'toastr'])
+  .constant('malarkey', malarkey)
+  .constant('moment', moment)
   .config(config)
   .config(routerConfig)
   .run(runBlock)
-  .controller('LoginController', LoginController)
-  .controller('DashboardController', DashboardController)
-  .service('apiService', apiService)
-  .service('masterService', masterService)
-  .service('authService', authService)
-  .controller('AppController', AppController);
+  .service('githubContributor', GithubContributorService)
+  .service('webDevTec', WebDevTecService)
+  .controller('MainController', MainController)
+  .directive('acmeNavbar', NavbarDirective)
+  .directive('acmeMalarkey', MalarkeyDirective);

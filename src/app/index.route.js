@@ -1,20 +1,11 @@
-export function routerConfig($stateProvider, $urlRouterProvider) {
+export function routerConfig ($stateProvider, $urlRouterProvider) {
   'ngInject';
   $stateProvider
-
-    .state('dashboard', {
-      url: '/dashboard',
-      templateUrl: 'app/dashboard/dashboard.html',
-      controller: 'DashboardController',
-      controllerAs: 'dash',
-      authenticate: true
-    })
-    .state('login', {
+    .state('home', {
       url: '/',
-      templateUrl: 'app/login/login.html',
-      controller: 'LoginController',
-      controllerAs: 'login',
-      authenticate: false
+      templateUrl: 'app/main/main.html',
+      controller: 'MainController',
+      controllerAs: 'main'
     });
 
   $urlRouterProvider.otherwise('/');
