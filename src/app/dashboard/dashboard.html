@@ -2,29 +2,130 @@
   <div class="row">
     <div class="col-md-6">
       <div class="alert alert-warning">
-        <div style="overflow: auto; height: 30vh">
+        <div>
+          <strong>Contracts Expired in the last 3 months</strong>
+          <hr>
+          <!-- <div style="overflow: auto; height: 28vh"> -->
+          <div style="overflow: auto; height: 28vh">
+            <table class="table mll-table">
+              <thead>
+                <tr>
+                  <th>Contract ID</th>
+                  <th>BA</th>
+                  <th>Customer</th>
+                  <th>Expiry Date</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="rate-details" ng-repeat="griddata in dash.contractsExpired">
+                  <td><a>{{griddata.SYSTEM_CONTRACTID}}</a></td>
+                  <td>{{griddata.VENDOR_NAME}}</td>
+                  <td>{{griddata.CUST_NAME}}</td>
+                  <td>{{griddata.AGREEMENT_EXP_DATE}}</td>
+                  <td><a>Renew</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
     <div class="col-md-6">
       <div class="alert alert-danger">
-        <div style="overflow: auto; height: 30vh">
+        <div>
+          <strong>Contracts close to expiry</strong>
+          <hr>
+          <div style="overflow: auto; height: 28vh">
+            <table class="table mll-table">
+              <thead>
+                <tr>
+                  <th>Contract ID</th>
+                  <th>BA</th>
+                  <th>Customer</th>
+                  <th>Expiry Date</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="rate-details" ng-repeat="griddata in dash.contractsCloseToExpiry">
+                  <td><a>{{griddata.SYSTEM_CONTRACTID}}</a></td>
+                  <td>{{griddata.VENDOR_NAME}}</td>
+                  <td>{{griddata.CUST_NAME}}</td>
+                  <td>{{griddata.AGREEMENT_EXP_DATE}}</td>
+                  <td><a>Renew</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-6">
-      <div class="alert alert-info">
-        <div style="overflow: auto; height: 30vh">
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="alert alert-success">
-        <div style="overflow: auto; height: 30vh">
+<!--   <div class="row">
+  <div class="col-md-6">
+    <div class="alert alert-info">
+      <div>
+        <div>
+          <strong>Contracts to be negotiated</strong>
+          <hr>
+          <div style="overflow: auto; height: 28vh">
+            <table class="table mll-table">
+              <thead>
+                <tr>
+                  <th>Contract ID</th>
+                  <th>BA</th>
+                  <th>Customer</th>
+                  <th>Expiry Date</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="rate-details" ng-repeat="griddata in dash.contractsCloseToExpiry">
+                  <td><a>{{griddata.CONTRACTID}}</a></td>
+                  <td>{{griddata.BA}}</td>
+                  <td>{{griddata.CUSTOMER}}</td>
+                  <td>{{griddata.EXPDATE}}</td>
+                  <td><a href="http://www.google.com">Renew</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <div class="col-md-6">
+    <div class="alert alert-success">
+      <div>
+        <div>
+          <strong>Contracts ammended in the last 3 months</strong>
+          <hr>
+          <div style="overflow: auto; height: 28vh">
+            <table class="table mll-table">
+              <thead>
+                <tr>
+                  <th>Contract ID</th>
+                  <th>BA</th>
+                  <th>Customer</th>
+                  <th>Expiry Date</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="rate-details" ng-repeat="griddata in dash.contractsCloseToExpiry">
+                  <td><a>{{griddata.CONTRACTID}}</a></td>
+                  <td>{{griddata.BA}}</td>
+                  <td>{{griddata.CUSTOMER}}</td>
+                  <td>{{griddata.EXPDATE}}</td>
+                  <td><a href="http://www.google.com">Renew</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
 </div>
