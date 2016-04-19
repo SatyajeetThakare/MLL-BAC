@@ -2,7 +2,9 @@
   "generator-gulp-angular": {
     "version": "1.0.2",
     "props": {
-      "angularVersion": "~1.3.16",
+
+      "angularVersion": "~1.4.2",
+
       "angularModules": [
         {
           "key": "animate",
@@ -33,8 +35,10 @@
         "key": "jquery2"
       },
       "resource": {
-        "key": "restangular",
-        "module": "restangular"
+
+        "key": "angular-resource",
+        "module": "ngResource"
+
       },
       "router": {
         "key": "ui-router",
