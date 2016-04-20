@@ -6,6 +6,7 @@ export class RateQueryController {
     this._api = apiService;
     //this.toaster = toaster;
      this.getAllFuelRates();
+     this.getAllCity();
   }
 
 /*//Test
@@ -24,19 +25,28 @@ export class RateQueryController {
 //Test*/
 
   init() {
-this.CITYNAME_option = this.fuelRates.getLocation();
+
+/* this.city_option = _.map([LOCATIONNAME], (i) => ({
+      name: i,
+      val: i
+    }));*/
 
   }
      getAllFuelRates(){
        this._api.get('getrates/all').then((res) => {
         this.fuelRates = res.data;
-
-        this.CITYNAME_option = this.fuelRates.getLocation();
-
         console.log(this.fuelRates);
-
       }, (err) => {
         this.toaster.error(`${err.status} : ${err.statusText}`);
       });
     }
+
+    getAllCity(){
+     this._api.get('location/0').then((res) => {
+        this.city = res.data;
+       console.log(this.city);
+      }, (err) => {
+        this.toaster.error(`${err.status} : ${err.statusText}`);
+      });
+   }
 }

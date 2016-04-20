@@ -1,64 +1,52 @@
 <div class="container" ng-init="ratequery.init()">
- <div class="row">
-  <div class="col-sm-12 col-md-12">
-
-<div class="row filter-margin">
-    <div class="col-md-9">
-      <div class="form-inline">
-        <div class="form-group">
-          <label class="form-label" for="from">City&nbsp;</label>
-
-         <select class="form-control input-sm" id="name" ng-model="fuelrate.selectedOption" ng-options="CITY as CITY.LOCATIONNAME for CITY in overall.CITYNAME_option  | orderBy: 'LOCATIONNAME' " >
-         <option value=""></option>
-         </select>
-
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="fromdate">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;From Date&nbsp;
-          </label>
-              <input type="date" class="form-control input-sm" id="fromdate" placeholder="yyyy-MM-dd" ng-model="fuelrate.FUELDATE">
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="todate">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To Date&nbsp;
-          </label>
-              <input type="date" class="form-control input-sm" id="todate" placeholder="yyyy-MM-dd" ng-model="fuelrate.FUELDATE">
-        </div>
-      </div>
+  <div class="row">
+    <div class="col-sm-3 col-md-3">
+      <label class="form-label" for="from">City</label>
+      <select class="form-control input-sm" id="trucktype" ng-model="ratequery.city.LOCATIONNAME" ng-options="city.LOCATIONNAME as city.LOCATIONNAME for city in ratequery.city">
+      </select>
     </div>
+    <div class="col-sm-3 col-md-3">
+      <label class="form-label" for="fromdate">From Date
+      </label>
+      <input type="date" class="form-control input-sm" id="fromdate" placeholder="yyyy-MM-dd" ng-model="fuelrate.FUELDATE">
+    </div>
+    <div class="col-sm-3 col-md-3">
+      <label class="form-label" for="todate">To Date
+      </label>
+      <input type="date" class="form-control input-sm" id="todate" placeholder="yyyy-MM-dd" ng-model="fuelrate.FUELDATE">
+    </div>
+    <div class="col-sm-3 col-md-3">
 
-    <div class="col-md-3 text-left">
-      <button class="btn btn-primary"  ng-click="fuelrate.search()"> <i class="glyphicon glyphicon-search"> </i>&nbsp;Search
+      <br/>
+      <button class="btn btn-primary pull-right"  ng-click="fuelrate.search()"> <i class="glyphicon glyphicon-search"> </i>&nbsp;Search
       </button>
     </div>
   </div>
-<!-- //Test -->
- <div class="row">
+  <hr>
+  <div class="row">
     <div class="col-md-12">
       <table class="table mll-table">
         <thead>
           <tr>
-                <th  class="text-left">City</th>
-                <th  class="text-left">Rate</th>
-                <th  class="text-left">Last Updated Date</th>
+            <th  class="text-left">City</th>
+            <th  class="text-left">Rate</th>
+            <th  class="text-left">Last Updated Date</th>
           </tr>
-
         </thead>
         <tbody>
-            <tr ng-repeat="fuelrate in ratequery.fuelRates" >
-              <td >
-                {{fuelrate.LOCATIONNAME}}
-              </td>
-              <td class="text-center">
-                {{fuelrate.RATE}}
-              </td>
-              <td  class="text-right">
-                {{fuelrate.FUELDATE | date:'dd-MM-yyyy'}}
-              </td>
-
-            </tr>
-          </tbody>
-        </table>
-      </div>
+          <tr ng-repeat="fuelrate in ratequery.fuelRates" >
+            <td >
+              {{fuelrate.LOCATIONNAME}}
+            </td>
+            <td class="text-center">
+              {{fuelrate.RATE}}
+            </td>
+            <td  class="text-right">
+              {{fuelrate.FUELDATE | date:'dd-MM-yyyy'}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
 </div>
