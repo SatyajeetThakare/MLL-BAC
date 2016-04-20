@@ -14,7 +14,7 @@ export class RateMasterController {
   }
 
   getAllFuelRates(){
-    this._api.get('getrates/getall').then((res) => {
+    this._api.get('getrates/all').then((res) => {
         this.fuelRates = res.data;
         console.log(this.fuelRates);
 
@@ -27,42 +27,46 @@ export class RateMasterController {
 
     var fuelRateSaveURL = 'fuelrate/INSERT';
 
-    /*var newRates = _.each(this.outputdata,
-                     (key, value) => {
+    var revisedRates = _.chain(this.fuelRates)
+                     .map((rate) => {
 
-                     });*/
+                    /*rate.FUELRATES_ID =  (this.fuelRates[0].CURRATE > 0 ? 0 : this.fuelRates[0].FUELRATES_ID),
+                    rate.FUELCITY     =  this.fuelRates[0].LOCATIONNAME,
+                    rate.RATE         =  (this.fuelRates[0].CURRATE > 0 ? this.fuelRates[0].CURRATE : this.fuelRates[0].RATE) ,
+                    rate.FUELDATE     =  this.$filter('date')(new Date(), 'yyyy-MM-dd'),
+                    rate.ACTIVE       =  "A",
+                    rate.CREATEDBY    =  1,
+                    rate.CREATEDON    =  this.$filter('date')(new Date(), 'yyyy-MM-dd'),
+                    rate.MODE         =  "INSERT";*/
 
-    var fuelRateData =
-    {
-        "fuelrateupdt" :
-        {
-            "FUELRATES_ID": (this.fuelRates[0].CURRATE > 0 ? 0 : this.fuelRates[0].FUELRATES_ID),
-            "FUELCITY" : this.fuelRates[0].LOCATIONNAME,
-            "RATE" : (this.fuelRates[0].CURRATE > 0 ? this.fuelRates[0].CURRATE : this.fuelRates[0].RATE) ,
-            // "LASTUPDATEDRATE" : this.fuelRates[0].RATE,
-            "FUELDATE" : this.$filter('date')(new Date(), 'yyyy-MM-dd'),
-            "ACTIVE" : "A",
-            "CREATEDBY" : 1,
-            "CREATEDON" :  this.$filter('date')(new Date(), 'yyyy-MM-dd'),
-            "MODE" : "INSERT"
-        }
+                    rate.FUELRATES_ID =  (rate.CURRATE > 0 ? 0 : rate.FUELRATES_ID);
+                    rate.FUELCITY     =  rate.LOCATIONNAME;
+                    rate.RATE         =  (rate.CURRATE > 0 ? rate.CURRATE : rate.RATE);
+                    rate.FUELDATE     =   (rate.CURRATE > rate.RATE ? FUELDATE : this.$filter('date')(new Date(), 'yyyy-MM-dd'));
+                    rate.ACTIVE       =  "A";
+                    rate.CREATEDBY    =  1;
+                    rate.CREATEDON    =  this.$filter('date')(new Date(), 'yyyy-MM-dd');
+                    rate.MODE         =  "INSERT";
 
-    };
+                    return rate;
+
+                     }).value();
+
+
 
     var newRate = {fuelrate : revisedRates};
-    console.log(newRate);
 
-    /*this._api.post(fuelRateSaveURL, fuelRateData)
+    this._api.post(fuelRateSaveURL, newRate)
         .then((res) => {
 
-          //console.log(res.data);
+          console.log(res.data);
           this.getAllFuelRates();
         },
 
 
         (err) => {
           console.error(err);
-        });*/
+        });
   }
 
 }
