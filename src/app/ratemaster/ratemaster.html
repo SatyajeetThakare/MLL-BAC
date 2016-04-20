@@ -13,6 +13,7 @@
         <thead>
           <tr>
                 <th  class="text-left">City</th>
+                <th  class="text-left">State</th>
                 <th  class="text-left">Last Updated Rate</th>
                 <th  class="text-left">Last Updated Date</th>
                 <th  class="text-leftr">Current Rate</th>
@@ -25,11 +26,14 @@
               <td >
                 {{fuelrate.LOCATIONNAME}}
               </td>
+              <td >
+                {{fuelrate.STATENAME}}
+              </td>
               <td class="text-center">
                 <input type="text" class="form-control mll-table-input" id="rate" ng-model="fuelrate.RATE"/>
               </td>
               <td class="text-right">
-                {{fuelrate.FUELDATE }}
+                {{fuelrate.FUELDATE | date: "yyyy-MM-dd" }}
               </td>
                <td class="text-center">
                 <input type="number" id="currentrate" ng-model="fuelrate.CURRATE"/>

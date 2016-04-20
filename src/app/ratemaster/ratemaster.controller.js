@@ -16,7 +16,19 @@ export class RateMasterController {
   getAllFuelRates(){
     this._api.get('getrates/all').then((res) => {
         this.fuelRates = res.data;
-        console.log(this.fuelRates);
+          // fuelrate = this.$filter('date')(new Date(this.fuelrate.FUELDATE),
+          //console.log(this.fuelRates);
+          var newOutputData =
+              _.each(this.fuelRates,
+                     (key, value) => {
+                       var FUELDATE = this.fuelRates[value].FUELDATE;
+                       //FUELDATE = this.$filter('date')(this.fuelRates[value].FUELDATE, 'yyyy-MM-dd');
+                       FUELDATE = this.$filter('date')(new Date(this.fuelRates[value].FUELDATE), 'dd-MMM-yyyy');
+                       this.fuelRates[value].FUELDATE = FUELDATE;
+
+                     });
+
+              this.fuelRates = newOutputData;
 
       }, (err) => {
         this.toaster.error(`${err.status} : ${err.statusText}`);
@@ -26,6 +38,8 @@ export class RateMasterController {
   addFuelRate(){
 
     var fuelRateSaveURL = 'fuelrate/INSERT';
+
+    console.log(this.fuelRates.FUELDATE);
 
     var revisedRates = _.chain(this.fuelRates)
                      .map((rate) => {
@@ -55,11 +69,11 @@ export class RateMasterController {
 
 
     var newRate = {fuelrate : revisedRates};
+    // console.log(newRate);
 
     this._api.post(fuelRateSaveURL, newRate)
         .then((res) => {
-
-          console.log(res.data);
+              console.log(res.data);
           this.getAllFuelRates();
         },
 
