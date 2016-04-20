@@ -763,8 +763,11 @@ form .progressbar {
     width: 0;
 }
 
-.statusavailable{
-    background-color: #b3c6ff;
+.statusup{
+    background-color: #9fdfbf;
+}
+.statusdown{
+    background-color: #ffcccc;
 }
 
 .statustaken{
@@ -772,11 +775,25 @@ form .progressbar {
     width:10px;
     height:100%;
 }
+
+.legend-color-statusup {
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #9fdfbf;
+}
+
+.legend-color-statusdown {
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #ffcccc;
+}
+
 .legend-color {
   padding-left: 10px;
   padding-right: 10px;
   background-color: #b3c6ff;
 }
+
 .table-fixed thead {
   width: 97%;
 }

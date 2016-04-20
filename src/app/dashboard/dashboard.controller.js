@@ -8,7 +8,8 @@ export class DashboardController {
     //this.toaster = toaster;
     this.getDashContractsExp();
     this.getDashContractsCloseToExp();
-
+    this.getDashContractsToBeNego();
+    this.getDashContractsAmmended();
   }
 
   init() {
@@ -34,6 +35,31 @@ getDashContractsExp(){
         .then((res) => {
             console.log(res.data);
             this.contractsCloseToExpiry = res.data;
+        },
+        (err) => {
+            console.log(err);
+        });
+  }
+
+  getDashContractsToBeNego(){
+
+    this._api.get(`getdashcontractstobenego/1`)
+        .then((nego) => {
+            console.log(nego.data);
+            this.contractsToBeNego = nego.data;
+        },
+        (err) => {
+            console.log(err);
+        });
+
+  }
+
+  getDashContractsAmmended(){
+
+    this._api.get(`getdashcontractsammended/1`)
+        .then((nego) => {
+            console.log(nego.data);
+            this.contractsAmmended = nego.data;
         },
         (err) => {
             console.log(err);
