@@ -16,7 +16,20 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       controllerAs: 'login',
       authenticate: false
     })
-
+   .state('ratemaster', {
+      url: '/ratemaster',
+      templateUrl: 'app/ratemaster/ratemaster.html',
+      controller: 'RateMasterController',
+      controllerAs: 'rate',
+      authenticate: true
+    })
+   .state('ratequery', {
+      url: '/ratequery',
+      templateUrl: 'app/ratequery/ratequery.html',
+      controller: 'RateQueryController',
+      controllerAs: 'ratequery',
+      authenticate: true
+    })
     .state('dashboard', {
       url: '/dashboard',
       templateUrl: 'app/dashboard/dashboard.html',

@@ -6,6 +6,8 @@ import { runBlock } from './index.run';
 import { MainController } from './main/main.controller';
 import { LoginController } from './login/login.controller';
 import { DashboardController } from './dashboard/dashboard.controller';
+import { RateMasterController } from './ratemaster/ratemaster.controller';
+import { RateQueryController } from './ratequery/ratequery.controller';
 import { AppController } from '../app/components/app/app.controller';
 import { GithubContributorService } from '../app/components/githubContributor/githubContributor.service';
 import { authService } from '../app/login/auth.service';
@@ -14,13 +16,9 @@ import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service'
 import { NavbarDirective } from '../app/components/navbar/navbar.directive';
 import { MalarkeyDirective } from '../app/components/malarkey/malarkey.directive';
 
-<<<<<<< HEAD
 
-angular.module('mllBac', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'ui.bootstrap', 'toastr'])
-
-=======
 angular.module('mllBac', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'toastr'])
->>>>>>> master
+
   .constant('malarkey', malarkey)
   .constant('moment', moment)
   .config(config)
@@ -31,6 +29,8 @@ angular.module('mllBac', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
   .controller('MainController', MainController)
   .controller('LoginController', LoginController)
   .controller('DashboardController', DashboardController)
+  .controller('RateMasterController', RateMasterController)
+  .controller('RateQueryController', RateQueryController)
   .service('authService', authService)
   .service('apiService', apiService)
   .directive('acmeNavbar', NavbarDirective)

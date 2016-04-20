@@ -1,0 +1,41 @@
+<div class="container" ng-init="ratequery.init()">
+ <div class="row">
+  <div class="col-sm-12 col-md-12">
+                <!--   <legend class="legend top-legend">
+                    FUEL RATE QUERY
+                    <button class="btn btn-default btn-xs pull-right" data-toggle="modal" data-target="#myModal">Submit</button>
+
+                  </legend>
+                </div>
+              </div> -->
+
+ <div class="row">
+    <div class="col-md-12">
+      <table class="table mll-table">
+        <thead>
+          <tr>
+                <th  class="text-left">City</th>
+                <th  class="text-left">Rate</th>
+                <th  class="text-left">Last Updated Date</th>
+          </tr>
+
+        </thead>
+        <tbody>
+            {{apiData}}
+            <tr ng-repeat="contract in ratequery.apiData" >
+              <td >
+                {{contract.city}}
+              </td>
+              <td class="text-center">
+                {{contract.lastupdatedrate}}
+              </td>
+              <td>
+                {{contract.lastupdateddate}}
+              </td>
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>
