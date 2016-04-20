@@ -61,70 +61,76 @@
       </div>
     </div>
   </div>
-<!--<div class="row">
-  <div class="col-md-6">
-    <div class="alert alert-info">
-      <div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="alert alert-info">
         <div>
-          <strong>Contracts to be negotiated</strong>
-          <hr>
-          <div style="overflow: auto; height: 28vh">
-            <table class="table mll-table">
-              <thead>
-                <tr>
-                  <th>Contract ID</th>
-                  <th>BA</th>
-                  <th>Customer</th>
-                  <th>Expiry Date</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="rate-details" ng-repeat="griddata in dash.contractsCloseToExpiry">
-                  <td><a>{{griddata.CONTRACTID}}</a></td>
-                  <td>{{griddata.BA}}</td>
-                  <td>{{griddata.CUSTOMER}}</td>
-                  <td>{{griddata.EXPDATE}}</td>
-                  <td><a href="http://www.google.com">Renew</a></td>
-                </tr>
-              </tbody>
-            </table>
+          <div>
+            <strong>Contracts to be negotiated</strong>
+            <span class="legend-color-statusdown pull-right">&nbsp;</span><span class="unit unitlegend pull-right">DOWN</span>
+            <span class="legend-color-statusup pull-right">&nbsp;</span><span class="unit unitlegend pull-right">UP</span>
+            <hr>
+            <div style="overflow: auto; height: 28vh">
+              <table class="table mll-table">
+                <thead>
+                  <tr>
+                    <th>Contract ID</th>
+                    <th>BA</th>
+                    <th>Customer</th>
+                    <th>Effective Rate</th>
+                    <th>Current Rate</th>
+                    <th>Fuel Rate</th>
+                    <th>Last Fuel Nego. Date</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="rate-details" ng-repeat="griddata in dash.contractsToBeNego">
+                    <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}"><a>{{griddata.SYSTEM_CONTRACTID}}</a></td>
+                    <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}">{{griddata.VENDOR_NAME}}</td>
+                    <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}">{{griddata.CUST_NAME}}</td>
+                    <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}">{{griddata.EFF_RATE | number : 2}}</td>
+                    <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}">{{griddata.CUR_RATE | number : 2}}</td>
+                    <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}">{{griddata.FUEL_RATE | number : 2}}</td>
+                    <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}">{{griddata.LAST_FUEL_NEGO_DATE}}</td>
+                    <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}"><a>Negotiate</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="alert alert-success">
+        <div>
+          <div>
+            <strong>Contracts ammended in the last 3 months</strong>
+            <hr>
+            <div style="overflow: auto; height: 28vh">
+              <table class="table mll-table">
+                <thead>
+                  <tr>
+                    <th>Contract ID</th>
+                    <th>BA</th>
+                    <th>Fule Rate</th>
+                    <th>Last Fuel Nego. Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="rate-details" ng-repeat="griddata in dash.contractsAmmended">
+                    <td><a>{{griddata.SYSTEM_CONTRACTID}}</a></td>
+                    <td>{{griddata.VENDOR_NAME}}</td>
+                    <td>{{griddata.FUEL_RATE | number : 2}}</td>
+                    <td>{{griddata.LAST_FUEL_NEGO_DATE}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-md-6">
-    <div class="alert alert-success">
-      <div>
-        <div>
-          <strong>Contracts ammended in the last 3 months</strong>
-          <hr>
-          <div style="overflow: auto; height: 28vh">
-            <table class="table mll-table">
-              <thead>
-                <tr>
-                  <th>Contract ID</th>
-                  <th>BA</th>
-                  <th>Customer</th>
-                  <th>Expiry Date</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="rate-details" ng-repeat="griddata in dash.contractsCloseToExpiry">
-                  <td><a>{{griddata.CONTRACTID}}</a></td>
-                  <td>{{griddata.BA}}</td>
-                  <td>{{griddata.CUSTOMER}}</td>
-                  <td>{{griddata.EXPDATE}}</td>
-                  <td><a href="http://www.google.com">Renew</a></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>-->
 </div>
