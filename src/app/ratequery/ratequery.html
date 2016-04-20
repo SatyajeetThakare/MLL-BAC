@@ -1,41 +1,52 @@
 <div class="container" ng-init="ratequery.init()">
- <div class="row">
-  <div class="col-sm-12 col-md-12">
-                <!--   <legend class="legend top-legend">
-                    FUEL RATE QUERY
-                    <button class="btn btn-default btn-xs pull-right" data-toggle="modal" data-target="#myModal">Submit</button>
+  <div class="row">
+    <div class="col-sm-3 col-md-3">
+      <label class="form-label" for="from">City</label>
+      <select class="form-control input-sm" id="trucktype" ng-model="ratequery.city.LOCATIONNAME" ng-options="city.LOCATIONNAME as city.LOCATIONNAME for city in ratequery.city">
+      </select>
+    </div>
+    <div class="col-sm-3 col-md-3">
+      <label class="form-label" for="fromdate">From Date
+      </label>
+      <input type="date" class="form-control input-sm" id="fromdate" placeholder="yyyy-MM-dd" ng-model="fuelrate.FUELDATE">
+    </div>
+    <div class="col-sm-3 col-md-3">
+      <label class="form-label" for="todate">To Date
+      </label>
+      <input type="date" class="form-control input-sm" id="todate" placeholder="yyyy-MM-dd" ng-model="fuelrate.FUELDATE">
+    </div>
+    <div class="col-sm-3 col-md-3">
 
-                  </legend>
-                </div>
-              </div> -->
-
- <div class="row">
+      <br/>
+      <button class="btn btn-primary pull-right"  ng-click="fuelrate.search()"> <i class="glyphicon glyphicon-search"> </i>&nbsp;Search
+      </button>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
     <div class="col-md-12">
       <table class="table mll-table">
         <thead>
           <tr>
-                <th  class="text-left">City</th>
-                <th  class="text-left">Rate</th>
-                <th  class="text-left">Last Updated Date</th>
+            <th  class="text-left">City</th>
+            <th  class="text-left">Rate</th>
+            <th  class="text-left">Last Updated Date</th>
           </tr>
-
         </thead>
         <tbody>
-            {{apiData}}
-            <tr ng-repeat="contract in ratequery.apiData" >
-              <td >
-                {{contract.city}}
-              </td>
-              <td class="text-center">
-                {{contract.lastupdatedrate}}
-              </td>
-              <td>
-                {{contract.lastupdateddate}}
-              </td>
-
-            </tr>
-          </tbody>
-        </table>
-      </div>
+          <tr ng-repeat="fuelrate in ratequery.fuelRates" >
+            <td >
+              {{fuelrate.LOCATIONNAME}}
+            </td>
+            <td class="text-center">
+              {{fuelrate.RATE}}
+            </td>
+            <td  class="text-right">
+              {{fuelrate.FUELDATE | date:'dd-MM-yyyy'}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
 </div>

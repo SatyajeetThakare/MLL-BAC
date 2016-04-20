@@ -5,46 +5,48 @@ export class RateQueryController {
     //this.$http = $http;
     this._api = apiService;
     //this.toaster = toaster;
+     this.getAllFuelRates();
+     this.getAllCity();
   }
+
+/*//Test
+
+  getTransactionData(isFlag, fromLoc, vehTypeName)
+  {
+
+    this._api.get(`location/0`)
+         .then((res) => {
+          this.outputdata = res.data;
+          var newOutputData =
+              _.each(this.outputdata,
+                     (key, value) => {
+}
+}
+//Test*/
 
   init() {
 
-    var apiData = [
-        {
-            'city' : 'MUMBAI',
-            'lastupdatedrate' : '50.10',
-            'lastupdateddate' : '01-Jan-2016',
-            'currentrate' : '01-Jan-2016'
-        }, {
-            'city' : 'MUMBAI',
-            'lastupdatedrate' : '50.10',
-            'lastupdateddate' : '01-Jan-2016',
-            'currentrate' : '01-Jan-2016'
-        }, {
-            'city' : 'MUMBAI',
-            'lastupdatedrate' : '50.10',
-            'lastupdateddate' : '01-Jan-2016',
-            'currentrate' : '01-Jan-2016'
-        }
-        ];
+/* this.city_option = _.map([LOCATIONNAME], (i) => ({
+      name: i,
+      val: i
+    }));*/
 
-        this.apiData = apiData;
-        console.log(apiData);
-        /*
-    this._api.get('getrfplist/getall').then((res) => {
-        var bac = res.data;
-        bac = _.map(bac, (contract) => {
-        //  contract.RFPDATE = new Date(contract.RFPDATE);
-        //  contract.DUEDATE = new Date(contract.DUEDATE);
-          return contract;
-
-        });
-        this.bac = bac;
+  }
+     getAllFuelRates(){
+       this._api.get('getrates/all').then((res) => {
+        this.fuelRates = res.data;
+        console.log(this.fuelRates);
       }, (err) => {
         this.toaster.error(`${err.status} : ${err.statusText}`);
       });
-    */
+    }
 
-  }
-
+    getAllCity(){
+     this._api.get('location/0').then((res) => {
+        this.city = res.data;
+       console.log(this.city);
+      }, (err) => {
+        this.toaster.error(`${err.status} : ${err.statusText}`);
+      });
+   }
 }
