@@ -1,8 +1,9 @@
 export class RateMasterController {
   //constructor ($timeout, webDevTec, toastr) {
-  constructor($timeout, apiService) {
+  constructor($timeout, apiService , $filter) {
     'ngInject';
     //this.$http = $http;
+     this.$filter = $filter;
     this._api = apiService;
     //this.toaster = toaster;
     this.getAllFuelRates();
@@ -26,28 +27,52 @@ export class RateMasterController {
 
     var fuelRateSaveURL = 'fuelrate/INSERT';
 
-    var fuelRateData =
-    {
-        "fuelrateupdt" :
-        {
-            "FUELRATES_ID": this.fuelRates[0].FUELRATES_ID,
-            "FUELCITY" : this.fuelRates[0].FUELCITY,
-            "RATE" : this.fuelRates[0].CURRATE,
-            "FUELDATE" : "1800-01-01",
-            "ACTIVE" : "A",
-            "CREATEDBY" : "1",
-            "CREATEDON" : "2016-04-18"
-        }
-    };
+    var revisedRates = _.chain(this.fuelRates[0])
+                            .map((rate) => {
 
-    this._api.post(fuelRateSaveURL, fuelRateData)
+                              /*
+                              "FUELRATES_ID": (this.fuelRates[0].CURRATE > 0 ? 0 : this.fuelRates[0].FUELRATES_ID),
+                              "FUELCITY" : this.fuelRates[0].LOCATIONNAME,
+                              "RATE" : (this.fuelRates[0].CURRATE > 0 ? this.fuelRates[0].CURRATE : this.fuelRates[0].RATE) ,
+                              // "LASTUPDATEDRATE" : this.fuelRates[0].RATE,
+                              "FUELDATE" : this.$filter('date')(new Date(), 'yyyy-MM-dd'),
+                              "ACTIVE" : "A",
+                              "CREATEDBY" : 1,
+                              "CREATEDON" :  this.$filter('date')(new Date(), 'yyyy-MM-dd'),
+                              "MODE" : "INSERT"*/
+                              return rate;
+                            });
+
+    /*{
+        "fuelrate" :[
+        {
+            "FUELRATES_ID": (this.fuelRates[0].CURRATE > 0 ? 0 : this.fuelRates[0].FUELRATES_ID),
+            "FUELCITY" : this.fuelRates[0].LOCATIONNAME,
+            "RATE" : (this.fuelRates[0].CURRATE > 0 ? this.fuelRates[0].CURRATE : this.fuelRates[0].RATE) ,
+            // "LASTUPDATEDRATE" : this.fuelRates[0].RATE,
+            "FUELDATE" : this.$filter('date')(new Date(), 'yyyy-MM-dd'),
+            "ACTIVE" : "A",
+            "CREATEDBY" : 1,
+            "CREATEDON" :  this.$filter('date')(new Date(), 'yyyy-MM-dd'),
+            "MODE" : "INSERT"
+        }
+        ];
+    };*/
+
+    var newRate = {fuelrate : revisedRates};
+    console.log(newRate);
+
+    /*this._api.post(fuelRateSaveURL, fuelRateData)
         .then((res) => {
+
+          //console.log(res.data);
           this.getAllFuelRates();
         },
 
+
         (err) => {
           console.error(err);
-        });
+        });*/
   }
 
 }
