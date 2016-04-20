@@ -27,24 +27,14 @@ export class RateMasterController {
 
     var fuelRateSaveURL = 'fuelrate/INSERT';
 
-    var revisedRates = _.chain(this.fuelRates[0])
-                            .map((rate) => {
+    /*var newRates = _.each(this.outputdata,
+                     (key, value) => {
 
-                              /*
-                              "FUELRATES_ID": (this.fuelRates[0].CURRATE > 0 ? 0 : this.fuelRates[0].FUELRATES_ID),
-                              "FUELCITY" : this.fuelRates[0].LOCATIONNAME,
-                              "RATE" : (this.fuelRates[0].CURRATE > 0 ? this.fuelRates[0].CURRATE : this.fuelRates[0].RATE) ,
-                              // "LASTUPDATEDRATE" : this.fuelRates[0].RATE,
-                              "FUELDATE" : this.$filter('date')(new Date(), 'yyyy-MM-dd'),
-                              "ACTIVE" : "A",
-                              "CREATEDBY" : 1,
-                              "CREATEDON" :  this.$filter('date')(new Date(), 'yyyy-MM-dd'),
-                              "MODE" : "INSERT"*/
-                              return rate;
-                            });
+                     });*/
 
-    /*{
-        "fuelrate" :[
+    var fuelRateData =
+    {
+        "fuelrateupdt" :
         {
             "FUELRATES_ID": (this.fuelRates[0].CURRATE > 0 ? 0 : this.fuelRates[0].FUELRATES_ID),
             "FUELCITY" : this.fuelRates[0].LOCATIONNAME,
@@ -56,8 +46,8 @@ export class RateMasterController {
             "CREATEDON" :  this.$filter('date')(new Date(), 'yyyy-MM-dd'),
             "MODE" : "INSERT"
         }
-        ];
-    };*/
+
+    };
 
     var newRate = {fuelrate : revisedRates};
     console.log(newRate);
