@@ -26,6 +26,11 @@ export class RateMasterController {
 
     var fuelRateSaveURL = 'fuelrate/INSERT';
 
+    var newRates = _.each(this.outputdata,
+                     (key, value) => {
+
+                     });
+
     var fuelRateData =
     {
         "fuelrateupdt" :
