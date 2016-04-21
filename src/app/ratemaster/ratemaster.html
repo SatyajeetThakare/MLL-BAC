@@ -20,7 +20,6 @@
           </tr>
         </thead>
         <tbody>
-          <!-- {{apiData}} -->
           <tr ng-repeat="fuelrate in rate.fuelRates" >
             <td >
               {{fuelrate.LOCATIONNAME}}
@@ -30,7 +29,7 @@
             </td>
             <td class="text-center">
               {{fuelrate.RATE}}
-              <!-- <input type="text" class="form-control mll-table-input" id="rate" ng-model="fuelrate.RATE"/> -->
+              <!--  <input type="text" class="form-control mll-table-input" id="rate" ng-model="fuelrate.RATE"/> -->
             </td>
             <td class="text-right">
               {{fuelrate.FUELDATE | date: "yyyy-MM-dd" }}
@@ -43,4 +42,5 @@
       </table>
     </div>
   </div>
+</div>
 </div>
