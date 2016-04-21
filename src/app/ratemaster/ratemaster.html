@@ -1,46 +1,46 @@
 <div class="container" ng-init="rate.init()">
- <div class="row">
-                <div class="col-sm-12 col-md-12">
-                  <legend class="legend top-legend">
-                    ADD/EDIT FUEL RATE
-                    <button class="btn btn-default btn-xs pull-right" ng-click="rate.addFuelRate()" data-toggle="modal" data-target="#myModal">Submit</button>
-                  </legend>
-                </div>
-              </div>
- <div class="row">
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <legend class="legend top-legend">
+        ADD/EDIT FUEL RATE
+        <button class="btn btn-default btn-xs pull-right" ng-click="rate.addFuelRate()" data-toggle="modal" data-target="#myModal">Submit</button>
+      </legend>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-md-12">
       <table class="table mll-table">
         <thead>
           <tr>
-                <th  class="text-left">City</th>
-                <th  class="text-left">State</th>
-                <th  class="text-left">Last Updated Rate</th>
-                <th  class="text-left">Last Updated Date</th>
-                <th  class="text-leftr">Current Rate</th>
+            <th  class="text-left">City</th>
+            <th  class="text-left">State</th>
+            <th  class="text-left">Last Updated Rate</th>
+            <th  class="text-left">Last Updated Date</th>
+            <th  class="text-leftr">Current Rate</th>
           </tr>
-
         </thead>
         <tbody>
-            <!-- {{apiData}} -->
-            <tr ng-repeat="fuelrate in rate.fuelRates" >
-              <td >
-                {{fuelrate.LOCATIONNAME}}
-              </td>
-              <td >
-                {{fuelrate.STATENAME}}
-              </td>
-              <td class="text-center">
-                <input type="text" class="form-control mll-table-input" id="rate" ng-model="fuelrate.RATE"/>
-              </td>
-              <td class="text-right">
-                {{fuelrate.FUELDATE | date: "yyyy-MM-dd" }}
-              </td>
-               <td class="text-center">
-                <input type="number" id="currentrate" ng-model="fuelrate.CURRATE"/>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+          <!-- {{apiData}} -->
+          <tr ng-repeat="fuelrate in rate.fuelRates" >
+            <td >
+              {{fuelrate.LOCATIONNAME}}
+            </td>
+            <td >
+              {{fuelrate.STATENAME}}
+            </td>
+            <td class="text-center">
+              {{fuelrate.RATE}}
+              <!-- <input type="text" class="form-control mll-table-input" id="rate" ng-model="fuelrate.RATE"/> -->
+            </td>
+            <td class="text-right">
+              {{fuelrate.FUELDATE | date: "yyyy-MM-dd" }}
+            </td>
+            <td class="text-center">
+              <input type="number" id="currentrate" ng-model="fuelrate.CURRATE"/>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
 </div>
