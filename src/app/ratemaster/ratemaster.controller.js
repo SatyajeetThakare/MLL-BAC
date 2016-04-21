@@ -55,8 +55,8 @@ export class RateMasterController {
 
                     rate.FUELRATES_ID =  (rate.CURRATE > 0 ? 0 : rate.FUELRATES_ID);
                     rate.FUELCITY     =  rate.LOCATIONNAME;
-                    rate.RATE         =  (rate.CURRATE > 0 ? rate.CURRATE : rate.RATE);
-                    rate.FUELDATE     =   (rate.CURRATE > rate.RATE ? FUELDATE : this.$filter('date')(new Date(), 'yyyy-MM-dd'));
+                    rate.RATE         =  rate.CURRATE; //(rate.CURRATE > 0 ? rate.CURRATE : rate.RATE);
+                    rate.FUELDATE     =  this.$filter('date')(new Date(), 'yyyy-MM-dd'); //(rate.CURRATE > rate.RATE ? FUELDATE : this.$filter('date')(new Date(), 'yyyy-MM-dd'));
                     rate.ACTIVE       =  "A";
                     rate.CREATEDBY    =  1;
                     rate.CREATEDON    =  this.$filter('date')(new Date(), 'yyyy-MM-dd');
