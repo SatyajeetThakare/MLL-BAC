@@ -5,7 +5,6 @@ export class DashboardController {
     this.$http = $http;
     this._api = apiService;
     //this._master = masterService;
-    //this.toaster = toaster;
     this.getDashContractsExp();
     this.getDashContractsCloseToExp();
     this.getDashContractsToBeNego();
