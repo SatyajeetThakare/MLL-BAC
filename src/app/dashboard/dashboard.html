@@ -1,75 +1,13 @@
 <div class="container-fluid" ng-init="dash.init()">
   <div class="row">
-    <div class="col-md-6">
-      <div class="alert alert-warning">
-        <div>
-          <strong>Contracts Expired in the last 3 months</strong>
-          <hr>
-          <div style="overflow: auto; height: 28vh">
-            <table class="table mll-table">
-              <thead>
-                <tr>
-                  <th>Contract ID</th>
-                  <th>BA</th>
-                  <th>Customer</th>
-                  <th>Expiry Date</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="rate-details" ng-repeat="griddata in dash.contractsExpired">
-                  <td><a>{{griddata.SYSTEM_CONTRACTID}}</a></td>
-                  <td>{{griddata.VENDOR_NAME}}</td>
-                  <td>{{griddata.CUST_NAME}}</td>
-                  <td>{{griddata.AGREEMENT_EXP_DATE}}</td>
-                  <td><a>Renew</a></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="alert alert-danger">
-        <div>
-          <strong>Contracts close to expiry</strong>
-          <hr>
-          <div style="overflow: auto; height: 28vh">
-            <table class="table mll-table">
-              <thead>
-                <tr>
-                  <th>Contract ID</th>
-                  <th>BA</th>
-                  <th>Customer</th>
-                  <th>Expiry Date</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="rate-details" ng-repeat="griddata in dash.contractsCloseToExpiry">
-                  <td><a>{{griddata.SYSTEM_CONTRACTID}}</a></td>
-                  <td>{{griddata.VENDOR_NAME}}</td>
-                  <td>{{griddata.CUST_NAME}}</td>
-                  <td>{{griddata.AGREEMENT_EXP_DATE}}</td>
-                  <td><a>Renew</a></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
-      <div class="alert alert-info">
+    <div class="col-md-12">
+      <div class="alert alert-nego">
         <div>
           <div>
             <strong>Contracts to be negotiated</strong>
-            <span class="legend-color-statusdown pull-right">&nbsp;</span><span class="unit unitlegend pull-right">DOWN</span>
-            <span class="legend-color-statusup pull-right">&nbsp;</span><span class="unit unitlegend pull-right">UP</span>
-            <hr>
+            <span class="legend-color-statusdown pull-right">&nbsp;</span><span class="unit unitlegend pull-right">&nbsp;&nbsp;&nbsp;Downwards :&nbsp;</span>
+            <span class="legend-color-statusup pull-right">&nbsp;</span><span class="unit unitlegend pull-right">Upwards :&nbsp;</span>
+            <hr class="hr-nego">
             <div style="overflow: auto; height: 28vh">
               <table class="table mll-table">
                 <thead>
@@ -77,10 +15,10 @@
                     <th>Contract ID</th>
                     <th>BA</th>
                     <th>Customer</th>
-                    <th>Effective Rate</th>
-                    <th>Current Rate</th>
-                    <th>Fuel Rate</th>
-                    <th>Last Fuel Nego. Date</th>
+                    <th>Curr. Rate</th>
+                    <th>Calculated Rate</th>
+                    <th>Curr. Fuel Rate</th>
+                    <th>Last Nego. Date</th>
                     <th></th>
                   </tr>
                 </thead>
@@ -89,9 +27,9 @@
                     <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}"><a>{{griddata.SYSTEM_CONTRACTID}}</a></td>
                     <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}">{{griddata.VENDOR_NAME}}</td>
                     <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}">{{griddata.CUST_NAME}}</td>
-                    <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}">{{griddata.EFF_RATE | number : 2}}</td>
-                    <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}">{{griddata.CUR_RATE | number : 2}}</td>
-                    <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}">{{griddata.FUEL_RATE | number : 2}}</td>
+                    <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}">{{griddata.CUR_RATE}}</td>
+                    <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}">{{griddata.EFF_RATE}}</td>
+                    <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}">{{griddata.FUEL_RATE}}</td>
                     <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}">{{griddata.LAST_FUEL_NEGO_DATE}}</td>
                     <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}"><a>Negotiate</a></td>
                   </tr>
@@ -102,7 +40,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6">
+    <!-- <div class="col-md-6">
       <div class="alert alert-success">
         <div>
           <div>
@@ -128,6 +66,68 @@
                 </tbody>
               </table>
             </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="alert alert-danger">
+        <div>
+          <strong>Contracts Expired in the last 3 months</strong>
+          <hr>
+          <div style="overflow: auto; height: 28vh">
+            <table class="table mll-table">
+              <thead>
+                <tr>
+                  <th>Contract ID</th>
+                  <th>BA</th>
+                  <th class="module">Customer</th>
+                  <th class="module">Expiry Date</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="rate-details" ng-repeat="griddata in dash.contractsExpired">
+                  <td><a>{{griddata.SYSTEM_CONTRACTID}}</a></td>
+                  <td>{{griddata.VENDOR_NAME}}</td>
+                  <td class="module">{{griddata.CUST_NAME}}</td>
+                  <td class="module">{{griddata.AGREEMENT_EXP_DATE}}</td>
+                  <td><a>Renew</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="alert alert-warning">
+        <div>
+          <strong>Contracts close to expiry</strong>
+          <hr>
+          <div style="overflow: auto; height: 28vh">
+            <table class="table mll-table">
+              <thead>
+                <tr>
+                  <th>Contract ID</th>
+                  <th>BA</th>
+                  <th class="module">Customer</th>
+                  <th>Expiry Date</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="rate-details" ng-repeat="griddata in dash.contractsCloseToExpiry">
+                  <td><a>{{griddata.SYSTEM_CONTRACTID}}</a></td>
+                  <td>{{griddata.VENDOR_NAME}}</td>
+                  <td class="module">{{griddata.CUST_NAME}}</td>
+                  <td>{{griddata.AGREEMENT_EXP_DATE}}</td>
+                  <td><a>Renew</a></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
