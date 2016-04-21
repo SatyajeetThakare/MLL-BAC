@@ -24,7 +24,7 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       authenticate: true
     })
    .state('ratequery', {
-      url: '/ratequery',
+      url: '/ratequery/:cityid',
       templateUrl: 'app/ratequery/ratequery.html',
       controller: 'RateQueryController',
       controllerAs: 'ratequery',
