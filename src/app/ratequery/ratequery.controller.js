@@ -57,6 +57,7 @@ export class RateQueryController {
     });
   }
 
+
   search() {
     this.getAllFuelRates(this.selectedOption.LOCATIONNAME);
   }
@@ -64,5 +65,6 @@ export class RateQueryController {
   viewRateMaster(){
      this.$state.go('ratemaster');
   }
+
 
 }
