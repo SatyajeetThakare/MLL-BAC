@@ -64,7 +64,7 @@ getDashContractsExp(){
 
   navigatetToRateMaster(){
 
-    console.log('This event called');
+    console.log('Hi');
     this.$state.go('ratemaster');
   }
 }
