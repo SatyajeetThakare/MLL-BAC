@@ -843,9 +843,10 @@ border-color: rgb(217, 217, 217);
   border: 2px solid $mll-red;
   color: $mll-red;
   text-align: center;
-  font-size: 20px;
+  font-size: 10px;
   padding: 3px 6px;
-  width: 200px;
+  width: 125px;
+  height: 25px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
@@ -868,6 +869,7 @@ border-color: rgb(217, 217, 217);
 }
 
 .anim-button span {
+  color: $mll-red;
   cursor: pointer;
   display: inline-block;
   position: relative;
@@ -880,6 +882,7 @@ border-color: rgb(217, 217, 217);
 // }
 
 .anim-button span:after {
+  color: $mll-red;
   content: '»';
   position: absolute;
   opacity: 0;
@@ -890,6 +893,7 @@ border-color: rgb(217, 217, 217);
 
 .anim-button:hover span {
   padding-right: 25px;
+  color: $mll-red;
 }
 
 .anim-button:hover span:after {
