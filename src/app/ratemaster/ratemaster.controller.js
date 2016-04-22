@@ -17,6 +17,7 @@ export class RateMasterController {
   getAllFuelRates() {
     this._api.get(`getrates/all`).then((res) => {
       this.fuelRates = res.data;
+
       var newOutputData =
         _.each(this.fuelRates,
           (key, value) => {
@@ -26,7 +27,6 @@ export class RateMasterController {
           });
 
       this.fuelRates = newOutputData;
-      console.log(this.fuelRates);
 
     }, (err) => {
       this.toaster.error(`${err.status} : ${err.statusText}`);
