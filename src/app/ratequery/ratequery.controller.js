@@ -55,6 +55,4 @@ export class RateQueryController {
       this.toaster.error(`${err.status} : ${err.statusText}`);
     });
   }
-
-
 }

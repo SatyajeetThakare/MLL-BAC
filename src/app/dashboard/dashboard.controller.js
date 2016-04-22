@@ -1,9 +1,10 @@
 export class DashboardController {
   //constructor($http, apiService, masterService, toaster) {
-  constructor($http, apiService) {
+  constructor($http, apiService, $state) {
     'ngInject';
     this.$http = $http;
     this._api = apiService;
+    this.$state = $state;
     //this._master = masterService;
     this.getDashContractsExp();
     this.getDashContractsCloseToExp();
@@ -60,5 +61,10 @@ getDashContractsExp(){
             console.log(err);
         });
   }
-}
 
+  navigatetToRateMaster(){
+
+    console.log('This event called');
+    this.$state.go('ratemaster');
+  }
+}
