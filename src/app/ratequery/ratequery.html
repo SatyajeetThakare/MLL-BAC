@@ -2,14 +2,6 @@
   <div class="row">
     <div class="col-sm-3 col-md-3">
       <label class="form-label" for="from">City</label>
-      <!-- <select class="form-control input-sm" id="trucktype"  ng-model="searchField.LOCATIONNAME" ng-options="city.LOCATIONNAME as city.LOCATIONNAME for city in ratequery.city">
-      </select> -->
-      <!-- <select class="form-control input-sm" id="city"  ng-model="ratequery.selectedOption" ng-options="city.LOCATIONNAME as city.LOCATIONNAME for city in ratequery.city">
-      </select> -->
-
-      <!-- <select class="form-control input-sm" id="city" ng-model="ratequery.selectedOption" ng-options="city.LOCATIONNAME as city.LOCATIONNAME for city in ratequery.city">
-        <option value=""></option>
-      </select> -->
 
       <select class="form-control input-sm" id="city" ng-model="ratequery.selectedOption" ng-options="CITY as CITY.LOCATIONNAME for CITY in ratequery.city | orderBy : 'LOCATIONNAME'" ng-change="ratequery.getAllFuelRates(ratequery.selectedOption.LOCATIONID)" required>
         <option value=""></option>
@@ -18,7 +10,6 @@
     <div class="col-sm-3 col-md-3">
       <label class="form-label" for="fromdate">From Date
       </label>
-      <!-- <input type="date" class="form-control input-sm" id="fromdate" placeholder="yyyy-MM-dd" ng-model="ratequery.FUELDATE"> -->
       <input type="date" class="form-control input-sm" id="fromdate" placeholder="yyyy-MM-dd" ng-model="ratequery.FUELFROMDATE">
     </div>
     <div class="col-sm-3 col-md-3">

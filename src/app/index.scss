@@ -837,6 +837,66 @@ border-color: rgb(217, 217, 217);
   max-width: 100px;
 }
 
+.anim-button {
+  border-radius: 4px;
+  background-color: $mll-white;
+  border: 2px solid $mll-red;
+  color: $mll-red;
+  text-align: center;
+  font-size: 20px;
+  padding: 3px 6px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  text-transform: uppercase;
+  -moz-border-radius: 10px;
+
+  // background-color: $mll-white;
+  // padding: 3px 6px;
+  // border: 1px solid;
+  // font: bold 20px Arial;
+  // cursor: pointer;
+  // margin: 3px 45px 4px;
+  // -moz-border-radius: 10px;
+  // border-radius: 5px;
+  // width: 250px;
+  // height: 40px;
+  // color: #fff;
+  // outline:
+  // text-transform: uppercase;
+}
+
+.anim-button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+// .anim-button.outline {
+// 	background: $mll-red;
+// 	padding: 12px 22px;
+// }
+
+.anim-button span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.anim-button:hover span {
+  padding-right: 25px;
+}
+
+.anim-button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
 /* .alert-nego,
 .alert-error {
 color: #b94a48;
