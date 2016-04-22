@@ -3,8 +3,10 @@ export class apiService {
     'ngInject';
 
     this.$http = $http;
-    //this._host = 'http://172.32.0.226';
-    this._host = 'http://115.113.135.239';
+
+    this._host = 'http://115.113.135.239'; //Dev
+    // this._host = 'http://59.160.18.222'; //Test
+    //  this._host = 'http://115.112.53.170'; //Live
 
     this._baseURL = `${this._host}/BAC_WCF/BACONTRACTRestService.svc`;
 
