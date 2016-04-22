@@ -1,10 +1,11 @@
 export class RateQueryController {
   //constructor ($timeout, webDevTec, toastr) {
-  constructor($timeout, apiService, $stateParams, $filter) {
+  constructor($timeout, apiService, $stateParams, $filter,, $state) {
     'ngInject';
     this._api = apiService;
     this.$stateParams = $stateParams;
     this.$filter = $filter;
+    this.$state = $state;
 
     this.getAllCity();
 
@@ -55,6 +56,10 @@ export class RateQueryController {
       this.toaster.error(`${err.status} : ${err.statusText}`);
     });
   }
+
+  /*viewRateMaster(){
+     this.$state.go('ratequery');
+  }*/
 
 
 }
