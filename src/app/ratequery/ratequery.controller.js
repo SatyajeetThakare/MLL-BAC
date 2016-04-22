@@ -1,6 +1,6 @@
 export class RateQueryController {
   //constructor ($timeout, webDevTec, toastr) {
-  constructor($timeout, apiService, $stateParams, $filter,, $state) {
+  constructor($timeout, apiService, $stateParams, $filter, $state) {
     'ngInject';
     this._api = apiService;
     this.$stateParams = $stateParams;
@@ -57,9 +57,12 @@ export class RateQueryController {
     });
   }
 
-  /*viewRateMaster(){
-     this.$state.go('ratequery');
-  }*/
+  search() {
+    this.getAllFuelRates(this.selectedOption.LOCATIONNAME);
+  }
 
+  viewRateMaster(){
+     this.$state.go('ratemaster');
+  }
 
 }
