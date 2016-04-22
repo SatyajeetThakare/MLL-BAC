@@ -11,7 +11,7 @@
         <option value=""></option>
       </select> -->
 
-      <select class="form-control input-sm" id="city" ng-model="ratequery.selectedOption" ng-options="CITY as CITY.LOCATIONNAME for CITY in ratequery.city" required>
+      <select class="form-control input-sm" id="city" ng-model="ratequery.selectedOption" ng-options="CITY as CITY.LOCATIONNAME for CITY in ratequery.city | orderBy : 'LOCATIONNAME'" ng-change="ratequery.getAllFuelRates(ratequery.selectedOption.LOCATIONID)" required>
         <option value=""></option>
       </select>
     </div>
