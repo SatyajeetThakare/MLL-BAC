@@ -21,6 +21,9 @@
                   <tr>
                     <th>Contract ID</th>
                     <th>BA</th>
+                    <th>Origin</th>
+                    <th>Destination</th>
+                    <th>Vehicle Type</th>
                     <th>Customer</th>
                     <th>Curr. Rate</th>
                     <th>Calculated Rate</th>
@@ -33,6 +36,9 @@
                   <tr class="rate-details" ng-repeat="griddata in dash.contractsToBeNego">
                     <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}"><a>{{griddata.SYSTEM_CONTRACTID}}</a></td>
                     <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}">{{griddata.VENDOR_NAME}}</td>
+                    <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}">{{griddata.ORG}}</td>
+                    <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}">{{griddata.DEST}}</td>
+                    <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}">{{griddata.VEHICLETYPE}}</td>
                     <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}">{{griddata.CUST_NAME}}</td>
                     <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}">{{griddata.CUR_RATE}}</td>
                     <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}">{{griddata.EFF_RATE}}</td>
