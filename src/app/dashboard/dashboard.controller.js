@@ -14,7 +14,6 @@ export class DashboardController {
 
   init() {
 
-
   }
 
 getDashContractsExp(){
@@ -48,7 +47,6 @@ getDashContractsExp(){
         (err) => {
             console.log(err);
         });
-
   }
 
   getDashContractsAmmended(){
@@ -63,6 +61,7 @@ getDashContractsExp(){
   }
 
   navigatetToRateMaster(){
+
     this.$state.go('ratemaster');
   }
 }
