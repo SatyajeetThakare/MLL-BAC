@@ -15,7 +15,47 @@
             <span class="legend-color-statusdown pull-right">&nbsp;</span><span class="unit unitlegend pull-right">&nbsp;&nbsp;&nbsp;Downwards :&nbsp;</span>
             <span class="legend-color-statusup pull-right">&nbsp;</span><span class="unit unitlegend pull-right">Upwards :&nbsp;</span>
             <hr class="hr-nego">
-            <div style="overflow: auto; height: 28vh">
+            <div class="output-table">
+              <div class="thead-div2">
+                <table class="table mll-table">
+                  <thead>
+                    <tr>
+                      <th><span>Contract ID</span></th>
+                      <th><span>BA</span></th>
+                      <th><span>Origin</span></th>
+                      <th><span>Destination</span></th>
+                      <th><span>Vehicle Type</span></th>
+                      <th><span>Customer</span></th>
+                      <th><span>Curr. Rate</span></th>
+                      <th><span>Calc. Rate</span></th>
+                      <th><span>Curr. Fuel Rate</span></th>
+                      <th><span>Last Nego. Date</span></th>
+                      <th><span></span></th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+              <div class="tbody-div4">
+                <table class="mll-table table">
+                  <tbody>
+                    <tr class="rate-details" ng-repeat="griddata in dash.contractsToBeNego">
+                      <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}"><span><a>{{griddata.SYSTEM_CONTRACTID}}</a></span></td>
+                      <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}"><span>{{griddata.VENDOR_NAME}}</span></td>
+                      <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}"><span>{{griddata.ORG}}</span></td>
+                      <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}"><span>{{griddata.DEST}}</span></td>
+                      <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}"><span>{{griddata.VEHICLETYPE}}</span></td>
+                      <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}"><span>{{griddata.CUST_NAME}}</span></td>
+                      <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}"><span>{{griddata.CUR_RATE}}</span></td>
+                      <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}"><span>{{griddata.EFF_RATE}}</span></td>
+                      <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}"><span>{{griddata.FUEL_RATE}}</span></td>
+                      <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}"><span>{{griddata.LAST_FUEL_NEGO_DATE}}</span></td>
+                      <td ng-class="{'statusup': griddata.FLAG === 1 , 'statusdown': griddata.FLAG === 0}"><span><a>Negotiate</a></span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- <div style="overflow: auto; height: 28vh">
               <table class="table mll-table">
                 <thead>
                   <tr>
@@ -48,7 +88,7 @@
                   </tr>
                 </tbody>
               </table>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
